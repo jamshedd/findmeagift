@@ -2,6 +2,8 @@
 
 A curated online gift marketplace with over 5,100 handcrafted and specialty items, powered by an AI voice concierge that helps customers find the perfect gift through natural conversation.
 
+**[Live Demo](https://webapp.thankfulflower-3ed369d7.eastus2.azurecontainerapps.io/)** | **[Watch the Demo Video](https://fmagvideos00868.blob.core.windows.net/videos/FindMeAGift-demo.mov)**
+
 ## Overview
 
 FindMeAGift reimagines online gift shopping by pairing a rich catalog spanning dozens of categories - artisan kitchenware, handmade jewelry, outdoor gear, wellness products, home decor, and more - with **Ivy**, a real-time AI voice and video concierge powered by the [Napster OmniAgent](https://docs.napster.com) platform.
