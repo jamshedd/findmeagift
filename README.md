@@ -14,6 +14,8 @@ For a detailed writeup, see [docs/findmeagift-writeup.md](docs/findmeagift-write
 
 ## Tech Stack
 
+Built on top of the [.NET eShop reference application](https://github.com/dotnet/eShop), extended with a curated gift catalog and AI voice concierge.
+
 - **ASP.NET** with **Blazor** (server-side rendering + enhanced navigation)
 - **PostgreSQL** with pgvector for catalog and vector search
 - **.NET Aspire** for local orchestration
@@ -26,7 +28,7 @@ For a detailed writeup, see [docs/findmeagift-writeup.md](docs/findmeagift-write
 
 ### Prerequisites
 
-- [.NET 9 SDK](https://dot.net/download)
+- [.NET 10 SDK](https://dot.net/download)
 - [Docker Desktop](https://docs.docker.com/engine/install/) (for PostgreSQL, RabbitMQ)
 - Redis running on localhost:6379 (or Docker)
 
