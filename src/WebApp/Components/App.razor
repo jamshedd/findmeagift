@@ -13,8 +13,27 @@
 </head>
 
 <body>
-    <Routes />
+    <div id="blazor-app">
+        <Routes />
+    </div>
+    <iframe id="gift-agent-frame" src="/agent-frame.html" 
+        style="position:fixed;bottom:0;right:0;width:360px;height:480px;z-index:9999;border:none;background:transparent;"
+        allow="microphone;camera"></iframe>
     <script src="_framework/blazor.web.js"></script>
+    <script>
+        // Listen for navigation requests from the agent iframe
+        window.addEventListener('message', function(e) {
+            if (e.data && e.data.type === 'agent-navigate') {
+                // Use Blazor enhanced nav via a temporary link click
+                var a = document.createElement('a');
+                a.href = e.data.url;
+                a.style.display = 'none';
+                document.getElementById('blazor-app').appendChild(a);
+                a.click();
+                a.remove();
+            }
+        });
+    </script>
 </body>
 
 </html>

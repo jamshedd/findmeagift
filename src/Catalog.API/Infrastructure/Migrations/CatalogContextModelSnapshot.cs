@@ -70,7 +70,7 @@ namespace eShop.Catalog.API.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(50)
+                        .HasMaxLength(100)
                         .HasColumnType("character varying(50)");
 
                     b.Property<bool>("OnReorder")

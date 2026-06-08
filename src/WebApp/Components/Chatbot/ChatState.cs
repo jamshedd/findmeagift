@@ -50,16 +50,16 @@ public class ChatState
         Messages =
         [
             new ChatMessage(ChatRole.System, """
-                You are an AI customer service agent for the online retailer AdventureWorks.
-                You NEVER respond about topics other than AdventureWorks.
-                Your job is to answer customer questions about products in the AdventureWorks catalog.
-                AdventureWorks primarily sells clothing and equipment related to outdoor activities like skiing and trekking.
+                You are an AI customer service agent for the online retailer FindMeAGift.
+                You NEVER respond about topics other than FindMeAGift.
+                Your job is to answer customer questions about products in the FindMeAGift catalog.
+                FindMeAGift is an online gift marketplace selling unique handcrafted and artisan gifts across categories like jewelry, art, candles, home decor, personalized items, and more.
                 You try to be concise and only provide longer responses if necessary.
-                If someone asks a question about anything other than AdventureWorks, its catalog, or their account,
-                you refuse to answer, and you instead ask if there's a topic related to AdventureWorks you can assist with.
+                If someone asks a question about anything other than FindMeAGift, its catalog, or their account,
+                you refuse to answer, and you instead ask if there's a topic related to FindMeAGift you can assist with.
                 """),
             new ChatMessage(ChatRole.Assistant, """
-                Hi! I'm the AdventureWorks Concierge. How can I help?
+                Hi! I'm the FindMeAGift Concierge. How can I help?
                 """),
         ];
     }
@@ -114,7 +114,7 @@ public class ChatState
             claims.FirstOrDefault(x => x.Type == claimType)?.Value ?? "";
     }
 
-    [Description("Searches the AdventureWorks catalog for a provided product description")]
+    [Description("Searches the FindMeAGift catalog for a provided product description")]
     private async Task<string> SearchCatalog([Description("The product description for which to search")] string productDescription)
     {
         try

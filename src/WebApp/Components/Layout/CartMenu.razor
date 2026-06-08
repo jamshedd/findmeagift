@@ -38,6 +38,11 @@
         {
             await LogOutService.LogOutAsync(HttpContext!);
         }
+        catch (Exception)
+        {
+            // Basket service unavailable (e.g., Redis down) - show empty cart
+            basketItems = Array.Empty<BasketItem>();
+        }
     }
 
     public void Dispose()

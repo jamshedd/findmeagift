@@ -8,7 +8,7 @@ class CatalogItemEntityTypeConfiguration
         builder.ToTable("Catalog");
 
         builder.Property(ci => ci.Name)
-            .HasMaxLength(50);
+            .HasMaxLength(100);
 
         builder.Property(ci => ci.Embedding)
             .HasColumnType("vector(384)");

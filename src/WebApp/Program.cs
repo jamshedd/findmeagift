@@ -1,5 +1,5 @@
 ﻿using eShop.WebApp.Components;
-using eShop.ServiceDefaults;
+using eShop.WebApp.Apis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,5 +30,9 @@ app.UseStaticFiles();
 app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
 
 app.MapForwarder("/product-images/{id}", "https+http://catalog-api", "/api/catalog/items/{id}/pic");
+app.MapForwarder("/api/agent/search-gifts", "https+http://catalog-api", "/api/agent/search-gifts");
+app.MapForwarder("/api/agent/item-details", "https+http://catalog-api", "/api/agent/item-details");
+
+app.MapAgentTokenApi();
 
 app.Run();

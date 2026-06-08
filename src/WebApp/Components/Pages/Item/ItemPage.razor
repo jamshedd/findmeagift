@@ -7,7 +7,7 @@
 
 @if (item is not null)
 {
-    <PageTitle>@item.Name | AdventureWorks</PageTitle>
+    <PageTitle>@item.Name | FindMeAGift</PageTitle>
     <SectionContent SectionName="page-header-title">@item.Name</SectionContent>
     <SectionContent SectionName="page-header-subtitle">@item.CatalogBrand?.Brand</SectionContent>
 
@@ -104,7 +104,14 @@ else if (notFound)
 
     private async Task UpdateNumInCartAsync()
     {
-        var items = await BasketState.GetBasketItemsAsync();
-        numInCart = items.FirstOrDefault(row => row.ProductId == ItemId)?.Quantity ?? 0;
+        try
+        {
+            var items = await BasketState.GetBasketItemsAsync();
+            numInCart = items.FirstOrDefault(row => row.ProductId == ItemId)?.Quantity ?? 0;
+        }
+        catch
+        {
+            numInCart = 0;
+        }
     }
 }

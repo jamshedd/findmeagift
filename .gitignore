@@ -491,3 +491,5 @@ $RECYCLE.BIN/
 /playwright/.auth/
 /user.json
 .azure
+venv/
+src/gift_catalog.json

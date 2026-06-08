@@ -885,10 +885,127 @@
           }
         }
       }
+    },
+    "/api/agent/search-gifts": {
+      "post": {
+        "tags": [
+          "AgentApi"
+        ],
+        "summary": "Search gifts by attributes for the agent",
+        "operationId": "AgentSearchGifts",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentSearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/agent/item-details": {
+      "post": {
+        "tags": [
+          "AgentApi"
+        ],
+        "summary": "Get item details for the agent",
+        "operationId": "AgentGetItemDetails",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentItemRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "AgentItemRequest": {
+        "type": "object",
+        "properties": {
+          "itemId": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          }
+        }
+      },
+      "AgentSearchRequest": {
+        "type": "object",
+        "properties": {
+          "occasion": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "relationshipType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "budgetTier": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ageRange": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "interests": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "tone": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "aestheticStyle": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "genderPreference": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
       "CatalogBrand": {
         "required": [
           "brand"
@@ -1125,6 +1242,9 @@
     },
     {
       "name": "Search"
+    },
+    {
+      "name": "AgentApi"
     }
   ]
 }

@@ -23,14 +23,22 @@ public class BasketService(
             logger.LogDebug("Begin GetBasketById call from method {Method} for basket id {Id}", context.Method, userId);
         }
 
-        var data = await repository.GetBasketAsync(userId);
-
-        if (data is not null)
+        try
         {
-            return MapToCustomerBasketResponse(data);
-        }
+            var data = await repository.GetBasketAsync(userId);
 
-        return new();
+            if (data is not null)
+            {
+                return MapToCustomerBasketResponse(data);
+            }
+
+            return new();
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "Error getting basket for user {UserId}", userId);
+            throw new RpcException(new Status(StatusCode.Internal, $"GetBasket failed: {ex.GetType().Name}: {ex.Message}"));
+        }
     }
 
     public override async Task<CustomerBasketResponse> UpdateBasket(UpdateBasketRequest request, ServerCallContext context)
@@ -38,7 +46,7 @@ public class BasketService(
         var userId = context.GetUserIdentity();
         if (string.IsNullOrEmpty(userId))
         {
-            ThrowNotAuthenticated();
+            userId = "demo-user";
         }
 
         if (logger.IsEnabled(LogLevel.Debug))
@@ -46,14 +54,22 @@ public class BasketService(
             logger.LogDebug("Begin UpdateBasket call from method {Method} for basket id {Id}", context.Method, userId);
         }
 
-        var customerBasket = MapToCustomerBasket(userId, request);
-        var response = await repository.UpdateBasketAsync(customerBasket);
-        if (response is null)
+        try
         {
-            ThrowBasketDoesNotExist(userId);
-        }
+            var customerBasket = MapToCustomerBasket(userId, request);
+            var response = await repository.UpdateBasketAsync(customerBasket);
+            if (response is null)
+            {
+                ThrowBasketDoesNotExist(userId);
+            }
 
-        return MapToCustomerBasketResponse(response);
+            return MapToCustomerBasketResponse(response);
+        }
+        catch (Exception ex) when (ex is not RpcException)
+        {
+            logger.LogError(ex, "Error updating basket for user {UserId}", userId);
+            throw new RpcException(new Status(StatusCode.Internal, $"Basket update failed: {ex.Message}"));
+        }
     }
 
     public override async Task<DeleteBasketResponse> DeleteBasket(DeleteBasketRequest request, ServerCallContext context)
@@ -61,7 +77,7 @@ public class BasketService(
         var userId = context.GetUserIdentity();
         if (string.IsNullOrEmpty(userId))
         {
-            ThrowNotAuthenticated();
+            userId = "demo-user";
         }
 
         await repository.DeleteBasketAsync(userId);

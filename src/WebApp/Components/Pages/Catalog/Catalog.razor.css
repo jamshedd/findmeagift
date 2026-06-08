@@ -90,6 +90,11 @@
     flex-grow: 1;
 }
 
+.catalog .catalog-content {
+    flex-grow: 1;
+    min-width: 0;
+}
+
 .page-links {
     display: flex;
     align-items: center;
@@ -115,6 +120,30 @@
     background-color: #000;
 }
 
+
+.agent-results-banner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.agent-results-banner .clear-filter {
+    margin-left: auto;
+    color: white !important;
+    background: transparent !important;
+    text-decoration: underline;
+    font-weight: 400;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0;
+}
 
 @media only screen and (max-width: 480px) { 
     .catalog {

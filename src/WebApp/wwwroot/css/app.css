@@ -289,3 +289,21 @@ h1:focus {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+/* Fix header text visibility on dark background */
+.eshop-header-intro h1,
+.eshop-header-intro p {
+    color: #FFF !important;
+}
+.eshop-header .logo-header {
+    color: #FFF !important;
+}
+.eshop-header-navbar h3,
+.eshop-header-navbar .dropdown-button,
+.eshop-header-navbar .dropdown-item,
+.eshop-header-navbar a,
+.eshop-header-navbar button {
+    color: #FFF !important;
+}
+.eshop-header-navbar img {
+    filter: brightness(0) invert(1);
+}

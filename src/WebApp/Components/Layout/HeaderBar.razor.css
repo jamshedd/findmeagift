@@ -5,13 +5,13 @@
 }
 
 .eshop-header.home .eshop-header-container {
-    height: 38rem;
+    height: 8rem;
     margin-bottom: 0;
 }
 
 .eshop-header .eshop-header-container {
-    height: 15rem;
-    margin-bottom: 4rem;
+    height: 6rem;
+    margin-bottom: 1rem;
 }
 
 .eshop-header-hero {
@@ -31,13 +31,13 @@
 .eshop-header-intro {
     position: absolute;
     max-width: 48rem;
-    bottom: 3rem;
+    bottom: 0.5rem;
     white-space: nowrap;
 }
 
 .eshop-header-intro h1 {
-    color: #000;
-    font-size: 3.5rem;
+    color: #FFF;
+    font-size: 1.8rem;
     font-style: normal;
     font-weight: 700;
     line-height: 100%;
@@ -45,8 +45,8 @@
 }
 
 .eshop-header-intro p {
-    color: #000;
-    font-size: 2rem;
+    color: #FFF;
+    font-size: 1.2rem;
     font-style: normal;
     font-weight: 700;
     line-height: 125%;
@@ -54,7 +54,7 @@
 }
 
 .eshop-header .logo-header {
-    color: black;
+    color: white;
     margin-right: auto;
     width: 20vw;
     height: auto;
@@ -73,7 +73,7 @@
 
 @media only screen and (max-width: 480px) { 
     .eshop-header-hero {
-        height: 18rem;
+        height: 3rem;
     }
 
     .eshop-header-hero img {
@@ -84,8 +84,8 @@
     }
 
     .eshop-header .eshop-header-container {
-        height: 15rem;
-        margin-bottom: 4rem;
+        height: 6rem;
+        margin-bottom: 1rem;
     }
 
     .eshop-header-container {
@@ -93,7 +93,7 @@
     }
 
     .eshop-header.home .eshop-header-container {
-        height: 18rem;
+        height: 6rem;
         margin: 0 1rem;
     }
 
@@ -103,21 +103,21 @@
     }
 
     .eshop-header-intro h1 {
-        font-size: 2rem;
+        font-size: 1.4rem;
     }
     
     .eshop-header-intro p {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 1024px) { 
     .eshop-header.home .eshop-header-hero {
-        height: 24rem;
+        height: 4rem;
     }
 
     .eshop-header .eshop-header-hero {
-        height: 15rem;
+        height: 4rem;
     }
 
     .eshop-header-hero img {
@@ -128,12 +128,11 @@
     }
 
     .eshop-header-container {
-        margin: 0 1rem;
         margin: 0 3rem;
     }
 
     .eshop-header.home .eshop-header-container {
-        height: 24rem;
+        height: 7rem;
         margin: 0 3rem;
     }
 
@@ -142,10 +141,10 @@
     }
 
     .eshop-header-intro h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     
     .eshop-header-intro p {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
 }
